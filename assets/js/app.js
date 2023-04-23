@@ -66,9 +66,34 @@ function cadastrarDespesa() {
 
     if (despesa.validarDados()) {
         bd.gravar(despesa);
-        //Dialog de sucesso
-        $('#sucessoGravacao').modal('show');
+        $('#modalRegistraDespesa').modal('show');
+        //  Alterando CSS baseado no resultado da verificação
+        let modalHeader = document.querySelector('.modal-header');
+        modalHeader.classList.add('text-success');
+
+        let modalTitle = document.querySelector('.modal-title');
+        modalTitle.innerHTML = 'Registro inserido com sucesso';
+
+        let modalBody = document.querySelector('.modal-body');
+        modalBody.innerHTML = 'Despesa foi cadastrada com sucesso!';
+
+        let modalFooterBtn = document.querySelector('#modalFooterBtn');
+        modalFooterBtn.innerHTML = 'Voltar';
+        modalFooterBtn.classList.add('btn-success');
     } else {
-        $('#erroGravacao').modal('show');
+        $('#modalRegistraDespesa').modal('show');
+        //  Alterando CSS baseado no resultado da verificação
+        let modalHeader = document.querySelector('.modal-header');
+        modalHeader.classList.add('text-danger');
+
+        let modalTitle = document.querySelector('.modal-title');
+        modalTitle.innerHTML = 'Erro na gravação';
+
+        let modalBody = document.querySelector('.modal-body');
+        modalBody.innerHTML = 'Existem campos obrigatórios que não foram preenchidos';
+
+        let modalFooterBtn = document.querySelector('#modalFooterBtn');
+        modalFooterBtn.innerHTML = 'Voltar e corrigir';
+        modalFooterBtn.classList.add('btn-danger');
     }
 }

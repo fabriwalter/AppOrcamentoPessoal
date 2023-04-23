@@ -98,6 +98,7 @@ function cadastrarDespesa() {
 
         //Dialog de sucesso
         $('#modalRegistraDespesa').modal('show');
+        limparCampos();
     } else {
 
         document.getElementById('modal_titulo').innerHTML = 'Erro na inclusão do registro';
@@ -146,4 +147,13 @@ function carregaListaDespesas() {
         linha.insertCell(2).innerHTML = d.descricao;
         linha.insertCell(3).innerHTML = d.valor;
     });
+}
+
+function limparCampos() {
+    document.getElementById('ano').value = '';
+    document.getElementById('mes').value = '';
+    document.getElementById('dia').value = '';
+    document.getElementById('tipo').value = '';
+    document.getElementById('descricao').value = '';
+    document.getElementById('valor').value = '';
 }

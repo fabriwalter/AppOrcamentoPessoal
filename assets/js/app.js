@@ -219,7 +219,24 @@ function carregaListaDespesas(despesas = Array(), filtro = false) {
             
             bd.remover(id);
 
-            window.location.reload();
+            // Exibição do Modal de Exclusão de despesa
+            document.getElementById('modal_titulo').innerHTML = 'Despesa excluída com sucesso';
+            document.getElementById('modal_titulo_div').className = 'modal-header text-warning';
+            document.getElementById('modal_conteudo').innerHTML = 'Despesa foi excluída com sucesso!';
+            document.getElementById('modal_btnConsulta').innerHTML = 'Voltar';
+            document.getElementById('modal_btnConsulta').className = 'btn btn-warning';
+            $('#modalExcluiDespesa').modal('show');
+
+            let btnVoltar = document.getElementById('modal_btnConsulta');
+            btnVoltar.onclick = function() {
+                window.location.reload();
+            }
+
+            let btnX = document.getElementById('modal_btnX');
+            btnX.onclick = function() {
+                window.location.reload();
+            }
+
         }
         linha.insertCell(4).append(btn);
     });
